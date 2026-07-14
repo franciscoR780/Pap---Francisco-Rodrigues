@@ -1,0 +1,541 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan 12, 2026, 1:38:28 PM
+    Author     : Francisco
+*/
+
+:root {
+            --amarelo: #FFD700;
+            --preto: #0a0a0a;
+            --cinza: #f4f4f4;
+            --branco: #ffffff;
+            --verde: #10B981;
+            --gold-gradient: linear-gradient(135deg, #FFD700 0%, #FFA000 25%, #FFD700 50%, #FFED4E 75%, #FFD700 100%);
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--cinza);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .confirmacao-container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--branco);
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confirmacao-header {
+            background: var(--gold-gradient);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confirmacao-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: scaleUp 0.5s ease 0.3s both;
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-icon i {
+            font-size: 4rem;
+            color: var(--verde);
+        }
+
+        .confirmacao-header h1 {
+            font-size: 2.5rem;
+            color: var(--preto);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .confirmacao-header p {
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        .confirmacao-body {
+            padding: 2.5rem;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 5px solid var(--amarelo);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .info-value {
+            font-weight: 700;
+            color: var(--preto);
+        }
+
+        .bilhetes-lista {
+            margin-top: 2rem;
+            page-break-before: always;
+        }
+
+        .bilhetes-lista h3 {
+            font-size: 1.5rem;
+            color: var(--preto);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-align: center;
+        }
+
+        .bilhetes-lista h3 i {
+            color: var(--amarelo);
+        }
+
+        .bilhete-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            page-break-inside: avoid;
+        }
+
+        .bilhete-item:hover {
+            border-color: var(--amarelo);
+            transform: translateX(5px);
+        }
+
+        .bilhete-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .bilhete-codigo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--preto);
+            font-family: 'Courier New', monospace;
+        }
+
+        .bilhete-tipo-badge {
+            background: var(--amarelo);
+            color: var(--preto);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .bilhete-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .bilhete-info-item {
+            color: #666;
+        }
+
+        .bilhete-info-item strong {
+            color: var(--preto);
+        }
+
+        .acoes-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-acao {
+            padding: 1rem;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--preto);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: var(--preto);
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+            transform: translateY(-3px);
+        }
+
+        .pagamento-info {
+            background: linear-gradient(135deg, #D4EDDA 0%, #C3E6CB 100%);
+            border: 2px solid var(--verde);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .pagamento-info h4 {
+            color: var(--preto);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .pagamento-info h4 i {
+            color: var(--verde);
+        }
+
+        .pagamento-info p {
+            color: #155724;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .pagamento-info strong {
+            color: var(--preto);
+        }
+
+        .rodape-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .rodape-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .rodape-info strong {
+            color: var(--amarelo);
+        }
+
+        @media print {
+            @page {
+                margin: 1cm;
+                size: A4 portrait;
+            }
+
+            @page { 
+                margin-top: 1cm;
+                margin-bottom: 1cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+            }
+
+            header, footer {
+                display: none !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                display: block !important;
+                padding: 0 !important;
+            }
+
+            .confirmacao-container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+            }
+
+            .confirmacao-header {
+                padding: 1.5rem 1rem !important;
+                background: linear-gradient(135deg, #FFD700 0%, #FFA000 50%, #FFD700 100%) !important;
+                page-break-after: avoid !important;
+            }
+
+            .confirmacao-header::before {
+                display: none !important;
+            }
+
+            .success-icon {
+                width: 80px !important;
+                height: 80px !important;
+                margin: 0 auto 1rem !important;
+            }
+
+            .success-icon i {
+                font-size: 3rem !important;
+            }
+
+            .confirmacao-header h1 {
+                font-size: 1.8rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+
+            .confirmacao-header p {
+                font-size: 1rem !important;
+            }
+
+            .confirmacao-body {
+                padding: 1.5rem 1rem !important;
+            }
+
+            .info-box {
+                background: #f8f9fa !important;
+                border-left: 4px solid #FFD700 !important;
+                padding: 1rem !important;
+                margin-bottom: 1.5rem !important;
+                page-break-inside: avoid !important;
+            }
+
+            .info-item {
+                padding: 0.5rem 0 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+
+            .info-label {
+                font-size: 0.9rem !important;
+            }
+
+            .info-value {
+                font-size: 0.9rem !important;
+                text-align: right !important;
+            }
+
+            .pagamento-info {
+                background: #D4EDDA !important;
+                border: 2px solid #10B981 !important;
+                padding: 1rem !important;
+                margin: 1.5rem 0 !important;
+                page-break-inside: avoid !important;
+            }
+
+            .pagamento-info h4 {
+                font-size: 1rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .pagamento-info p {
+                font-size: 0.85rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 0.3rem !important;
+            }
+
+            .bilhetes-lista {
+                page-break-before: always !important;
+                margin-top: 0 !important;
+                padding-top: 1.5rem !important;
+            }
+
+            .bilhetes-lista h3 {
+                font-size: 1.3rem !important;
+                margin-bottom: 1rem !important;
+                text-align: center !important;
+                display: block !important;
+            }
+
+            .bilhetes-lista h3 i {
+                display: inline-block !important;
+                margin-right: 0.5rem !important;
+            }
+
+            .bilhete-item {
+                background: #f8f9fa !important;
+                border: 2px solid #e0e0e0 !important;
+                padding: 1rem !important;
+                margin-bottom: 0.8rem !important;
+                page-break-inside: avoid !important;
+                border-radius: 8px !important;
+            }
+
+            .bilhete-item:hover {
+                transform: none !important;
+            }
+
+            .bilhete-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .bilhete-codigo {
+                font-size: 1rem !important;
+                font-weight: 800 !important;
+            }
+
+            .bilhete-tipo-badge {
+                background: #FFD700 !important;
+                color: #0a0a0a !important;
+                padding: 0.3rem 0.8rem !important;
+                border-radius: 15px !important;
+                font-size: 0.75rem !important;
+                font-weight: 700 !important;
+            }
+
+            .bilhete-info-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.4rem !important;
+                font-size: 0.85rem !important;
+            }
+
+            .bilhete-info-item {
+                display: block !important;
+            }
+
+            .rodape-info {
+                margin-top: 1.5rem !important;
+                padding-top: 1rem !important;
+                border-top: 2px solid #e0e0e0 !important;
+                text-align: center !important;
+                font-size: 0.85rem !important;
+                page-break-inside: avoid !important;
+            }
+
+            .rodape-info p {
+                margin-bottom: 0.3rem !important;
+            }
+
+            .acoes-container {
+                display: none !important;
+            }
+
+            .info-value[style*="color"] {
+                color: inherit !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .confirmacao-header h1 {
+                font-size: 2rem;
+            }
+
+            .acoes-container {
+                grid-template-columns: 1fr;
+            }
+
+            .bilhete-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
